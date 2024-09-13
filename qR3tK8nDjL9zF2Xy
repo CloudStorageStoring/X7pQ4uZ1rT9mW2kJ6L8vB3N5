@@ -1,1 +1,20 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById("toggleButton");
+    const iframe = document.getElementById("iframe");
 
+    // Toggle button visibility with Control + M
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'm') {
+            toggleButton.classList.toggle('hidden'); // Toggle visibility of the button
+        }
+    });
+
+    // Open prompt for iframe URL
+    toggleButton.addEventListener('click', function() {
+        const url = prompt("Enter the URL for the iframe:");
+        if (url) {
+            iframe.src = url;  // Set the iframe's source to the new URL
+            iframe.style.display = "block"; // Show the iframe
+        }
+    });
+});
